@@ -65,14 +65,12 @@
   .anat{background:var(--cream)}
   .agrid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;margin-top:10px}
   @media(max-width:860px){.agrid{grid-template-columns:1fr}}
-  .bar{display:flex;height:64px;border-radius:16px;overflow:hidden;margin:26px 0 14px;box-shadow:0 10px 30px -14px rgba(43,20,36,.4)}
-  .bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;text-align:center;padding:0 6px}
-  .bar .r{background:var(--plum);flex:46}
-  .bar .c{background:#8a4b6f;flex:9}
-  .bar .d{background:#b9795f;flex:18}
-  .bar .f{background:var(--gold);color:var(--plum);flex:27}
-  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
-  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+  @media(max-width:520px){.pillars{grid-template-columns:1fr 1fr}}
+  .pillars div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 14px;text-align:center}
+  .pillars span{font-size:24px;display:block}
+  .pillars b{display:block;font-family:"Cormorant Garamond",serif;font-size:21px;margin-top:6px}
+  .pillars small{font-size:12px;color:var(--muted)}
   .callout{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px}
   .callout h3{font-size:26px;margin-bottom:8px}
   .callout p{color:var(--muted);font-size:15px}
@@ -185,23 +183,19 @@
   <div class="wrap">
     <div class="agrid">
       <div class="reveal">
-        <div class="eyebrow">Where the revenue comes from</div>
-        <h2>More than half of every package is add-ons</h2>
-        <p class="lead">You offer a special rate on the room only. The cake, décor and dinner in every package are charged at your normal rates.</p>
-        <div class="bar" role="img" aria-label="Sample anniversary package of 13,999 rupees: room 46%, cake 9%, décor 18%, dinner 27%">
-          <div class="r">Room 46%</div><div class="c">Cake</div><div class="d">Décor</div><div class="f">Dinner 27%</div>
+        <div class="eyebrow">More than a room</div>
+        <h2>Every booking brings your F&amp;B team in</h2>
+        <p class="lead">Each Cherish Stays booking is a complete celebration. Your kitchen and banquet team deliver the cake, the décor and dinner for two, so every stay adds to your F&amp;B as well as your rooms.</p>
+        <div class="pillars">
+          <div><span>🛏️</span><b>Room</b><small>Your chosen category</small></div>
+          <div><span>🎂</span><b>Cake</b><small>Anniversaries &amp; birthdays</small></div>
+          <div><span>🎈</span><b>Décor</b><small>Every package</small></div>
+          <div><span>🍽️</span><b>Dinner</b><small>Every package</small></div>
         </div>
-        <div class="legend">
-          <span><i style="background:var(--plum)"></i>Room at your special rate</span>
-          <span><i style="background:#8a4b6f"></i>Cake 9%</span>
-          <span><i style="background:#b9795f"></i>Décor 18%</span>
-          <span><i style="background:var(--gold)"></i>Dinner 27%</span>
-        </div>
-        <p style="font-size:12px;color:var(--muted);margin-top:12px">Based on a sample ₹13,999 anniversary package. Actual split depends on your rates.</p>
       </div>
       <div class="callout reveal d1">
-        <h3>Sold as experiences, not discounts</h3>
-        <p>Guests never see a marked-down room rate for your hotel. They book a celebration package, so your brand and published rates stay protected.</p>
+        <h3>Sold as celebration packages</h3>
+        <p>Your room is never listed on its own. Guests book a complete celebration experience, which keeps your brand positioning and published rates protected.</p>
         <ul>
           <li>No standalone room bookings, ever</li>
           <li>Positioned as anniversary, birthday and date-night experiences</li>
@@ -221,8 +215,8 @@
     </div>
     <div class="bgrid">
       <div class="ben reveal"><div class="ic">📅</div><h3>You choose the nights</h3><p>Share your low-occupancy dates. Block or release them any time, so we never compete with your peak demand.</p></div>
-      <div class="ben reveal d1"><div class="ic">🏷️</div><h3>You set the rate</h3><p>You decide the special room rate for each date. We suggest 30–40% off on unsold rooms, but the call is yours.</p></div>
-      <div class="ben reveal d2"><div class="ic">🍰</div><h3>Add-on revenue on every booking</h3><p>Cake, décor and dinner are part of every package, charged at your normal rates.</p></div>
+      <div class="ben reveal d1"><div class="ic">🏷️</div><h3>You set the pricing</h3><p>You decide the package pricing for each date. We'll share what works for similar properties on our call.</p></div>
+      <div class="ben reveal d2"><div class="ic">🍰</div><h3>F&amp;B revenue on every booking</h3><p>Cake, décor and dinner are part of every package and delivered by your own team.</p></div>
       <div class="ben reveal"><div class="ic">🤝</div><h3>Commission only</h3><p>No listing fee, no setup cost, no contract lock-in. You pay a commission only on completed stays.</p></div>
       <div class="ben reveal d1"><div class="ic">🪪</div><h3>Verified adult guests</h3><p>Both guests are 18+ and carry a valid government photo ID. We share guest details before arrival.</p></div>
       <div class="ben reveal d2"><div class="ic">🗂️</div><h3>We handle the planning</h3><p>Occasion, cake message, décor theme and dinner preferences reach your team in one clear brief.</p></div>
@@ -255,7 +249,7 @@
         <ul class="chk">
           <li><span class="num">1</span><div><b>A room category</b><span>Usually deluxe or above, kept consistent across packages.</span></div></li>
           <li><span class="num">2</span><div><b>Your slow nights</b><span>Days or date ranges you want to fill, updated as often as you like.</span></div></li>
-          <li><span class="num">3</span><div><b>A package rate</b><span>Your special room rate plus your cake, décor and dinner pricing.</span></div></li>
+          <li><span class="num">3</span><div><b>A package rate</b><span>Your pricing for the full package on the dates you choose. We'll work it out together on the call.</span></div></li>
           <li><span class="num">4</span><div><b>Your check-in policy, in writing</b><span>Confirmation that you accept adult couples, including guests with local NCR IDs. It avoids any confusion at the front desk.</span></div></li>
           <li><span class="num">5</span><div><b>One point of contact</b><span>Usually someone from sales or revenue management, to receive bookings and briefs.</span></div></li>
         </ul>
