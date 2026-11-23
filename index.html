@@ -63,8 +63,8 @@
   .stats b{display:block;font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--rose-2);font-weight:600}
 
   /* occasions */
-  .occasions{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-  @media(max-width:860px){.occasions{grid-template-columns:repeat(2,1fr)}}
+  .occasions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  @media(max-width:760px){.occasions{grid-template-columns:1fr}}
   .occ{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 22px}
   .occ .ic{font-size:28px}
   .occ h3{font-size:24px;margin:10px 0 6px}
@@ -170,6 +170,16 @@
   .summary .btn{width:100%;justify-content:center}
   .fine{font-size:12px;color:#a98f99;margin-top:14px}
 
+  .incl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:520px){.incl{grid-template-columns:1fr}}
+  .incl li{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--cream);font-size:14px}
+  .incl li::before{content:"✓";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--plum);color:var(--rose-2);font-size:12px;font-weight:700;flex:none}
+  .inclnote{font-size:13px;color:var(--muted);margin-top:10px}
+  .strip{background:var(--plum-2);color:#eadbe0;padding:40px 0}
+  .strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .strip h3{font-size:28px;color:#fff}
+  .strip p{font-size:15px;color:#cdb6bf}
+
   /* ---------- 2. scroll reveal + petals ---------- */
   .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
   .js .reveal.in{opacity:1;transform:none}
@@ -231,7 +241,7 @@
       <li><a href="#how">How it works</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#plan">Plan yours</a></li>
-      <li><a href="#hotels">For hotels</a></li>
+      <li><a href="hotels.html">For hotels</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </div>
@@ -270,7 +280,6 @@
       <div class="occ"><div class="ic">💍</div><h3>Anniversaries</h3><p>Mark another year together with a night away from it all.</p></div>
       <div class="occ"><div class="ic">🎂</div><h3>Birthdays</h3><p>A surprise setup waiting in the room when you walk in.</p></div>
       <div class="occ"><div class="ic">🌙</div><h3>Date nights</h3><p>Dinner, a beautiful room and no plans for the morning.</p></div>
-      <div class="occ"><div class="ic">✨</div><h3>Just because</h3><p>Some moments don't need a reason. Book one anyway.</p></div>
     </div>
   </div>
 </section>
@@ -291,14 +300,14 @@
   <div class="wrap">
     <div class="eyebrow">Sample packages</div>
     <h2>Everything arranged, one price</h2>
-    <p class="lead">Examples of what a celebration could look like. Final packages and prices depend on the hotel and date.</p>
+    <p class="lead">Every stay is a complete celebration package: the room, the setup and dinner, all in one price. Final prices depend on the hotel and date.</p>
     <div class="pkgs" id="pkgs">
       <div class="pkg reveal">
         <div class="top"><span>🌹</span></div>
         <div class="body">
           <h3>Date Night</h3>
           <ul><li>Deluxe room at an upscale hotel</li><li>Rose petal &amp; candle setup</li><li>Dinner for two</li></ul>
-          <div class="price">Sample price from <b>₹9,999</b></div>
+          <div class="price">Sample price from <b>₹12,799</b></div>
           <button class="plan" data-preset="date">Plan this →</button>
         </div>
       </div>
@@ -315,8 +324,8 @@
         <div class="top"><span>🎂</span></div>
         <div class="body">
           <h3>Birthday Surprise</h3>
-          <ul><li>Deluxe room at an upscale hotel</li><li>Birthday cake &amp; surprise setup</li><li>Dinner for two</li><li>Late checkout, where available</li></ul>
-          <div class="price">Sample price from <b>₹12,999</b></div>
+          <ul><li>Deluxe room at an upscale hotel</li><li>Birthday cake</li><li>Surprise room décor: balloons, petals, candles</li><li>Dinner for two</li></ul>
+          <div class="price">Sample price from <b>₹13,999</b></div>
           <button class="plan" data-preset="birthday">Plan this →</button>
         </div>
       </div>
@@ -331,7 +340,7 @@
     <div class="reveal">
       <div class="eyebrow">Plan your celebration</div>
       <h2>Build it in under a minute</h2>
-      <p class="lead">Choose what you'd like and see an estimate. Then send it to us on WhatsApp and we'll come back with options at our partner hotels.</p>
+      <p class="lead">Pick your occasion, area and date to see an estimate. Then send it to us on WhatsApp and we'll come back with options at our partner hotels.</p>
     </div>
     <div class="bgrid">
       <div class="bform reveal d1">
@@ -341,7 +350,6 @@
             <button class="chip" aria-pressed="true" data-v="Anniversary">💍 Anniversary</button>
             <button class="chip" aria-pressed="false" data-v="Birthday">🎂 Birthday</button>
             <button class="chip" aria-pressed="false" data-v="Date night">🌙 Date night</button>
-            <button class="chip" aria-pressed="false" data-v="Just because">✨ Just because</button>
           </div>
         </div>
         <div class="field">
@@ -354,13 +362,9 @@
           </div>
         </div>
         <div class="field">
-          <span class="flabel">Add to your stay <small>(room included)</small></span>
-          <div class="addons">
-            <label class="addon"><input type="checkbox" data-addon="Celebration cake" data-price="1200" checked><span>Celebration cake</span><em>₹1,200</em></label>
-            <label class="addon"><input type="checkbox" data-addon="Room décor" data-price="2500" checked><span>Room décor</span><em>₹2,500</em></label>
-            <label class="addon"><input type="checkbox" data-addon="Dinner for two" data-price="3800" checked><span>Dinner for two</span><em>₹3,800</em></label>
-            <label class="addon"><input type="checkbox" data-addon="Late checkout" data-price="0"><span>Late checkout</span><em>on request</em></label>
-          </div>
+          <span class="flabel">What's included</span>
+          <ul class="incl" id="incl"></ul>
+          <p class="inclnote">Every package comes complete. Rooms aren't booked on their own.</p>
         </div>
         <div class="field">
           <span class="flabel">When?</span>
@@ -397,27 +401,13 @@
   </div>
 </section>
 
-<section id="hotels" class="hotels">
+<section class="strip">
   <div class="wrap">
-    <div class="box">
-      <div>
-        <div class="eyebrow">For hotels</div>
-        <h2>Turn slow nights into celebration revenue</h2>
-        <p class="lead">We bring couples celebrating special occasions to your property on the nights you choose.</p>
-        <ul>
-          <li>You choose the dates and the discount</li>
-          <li>Extra F&amp;B revenue from cake, décor and dinner add-ons</li>
-          <li>No upfront cost: commission on confirmed bookings only</li>
-          <li>Every guest is a verified adult with government ID</li>
-        </ul>
-        <a class="btn btn-dark" href="mailto:shashvat@cherishstays.in?subject=Partnering%20with%20Cherish%20Stays">Partner with us</a>
-      </div>
-      <div class="founding">
-        <h3>Founding partner programme</h3>
-        <p>We're onboarding 5 founding partner hotels in Delhi NCR. Founding partners get our lowest commission rate and featured placement.</p>
-        <a class="btn btn-primary" href="mailto:shashvat@cherishstays.in?subject=Founding%20partner%20enquiry">Request a 15-min call</a>
-      </div>
+    <div>
+      <h3>Run a hotel in Delhi NCR?</h3>
+      <p>Turn your slow nights into celebration revenue. See how partnering works.</p>
     </div>
+    <a class="btn btn-primary" href="hotels.html">For hotels →</a>
   </div>
 </section>
 
@@ -428,7 +418,8 @@
     <div class="faqlist">
       <details><summary>Who can book?</summary><p>Any couple where both guests are 18 or older and carry a valid government photo ID. Each partner hotel's check-in policy is confirmed with us in advance.</p></details>
       <details><summary>Why are the prices lower than booking directly?</summary><p>Our partner hotels offer special rates on their quieter nights. You get a premium stay for less, and the hotel fills a room that would otherwise sit empty.</p></details>
-      <details><summary>Can I customise the package?</summary><p>Yes. Tell us what you have in mind (a particular cake, décor theme or dinner preference) and we'll arrange it with the hotel where possible.</p></details>
+      <details><summary>Can I book just the room?</summary><p>No. Every Cherish Stays booking is a complete celebration package. That's how our partner hotels are able to offer these prices.</p></details>
+      <details><summary>Can I personalise the package?</summary><p>Yes. Choose your cake flavour, décor theme or dinner preferences and we'll arrange it with the hotel where possible. The cake, décor and dinner themselves are part of every package.</p></details>
       <details><summary>How do I pay?</summary><p>We'll share the booking details and payment options once your date and package are confirmed.</p></details>
       <details><summary>Is my information kept private?</summary><p>Yes. Your details are shared only with the hotel you book, and only for check-in.</p></details>
     </div>
@@ -442,7 +433,7 @@
     <p class="lead">We're launching with a handful of premium hotels in Delhi NCR. Message us and we'll let you know as soon as dates open up.</p>
     <div class="ctas">
       <a class="btn btn-wa" href="https://wa.me/919935036352?text=Hi%20Cherish%20Stays%2C%20I%27d%20like%20early%20access" target="_blank" rel="noopener">WhatsApp us</a>
-      <a class="btn btn-dark" href="https://www.instagram.com/cherishstays.in" target="_blank" rel="noopener">Follow @cherishstays</a>
+      <a class="btn btn-dark" href="https://www.instagram.com/cherishstays.in/" target="_blank" rel="noopener">Follow @cherishstays.in</a>
     </div>
   </div>
 </section>
@@ -452,8 +443,8 @@
     <div>© <span id="yr">2026</span> Cherish Stays · Delhi NCR</div>
     <div class="links">
       <a href="mailto:hello@cherishstays.in">hello@cherishstays.in</a>
-      <a href="https://www.instagram.com/cherishstays.in" target="_blank" rel="noopener">Instagram</a>
-      <a href="#hotels">For hotels</a>
+      <a href="https://www.instagram.com/cherishstays.in/" target="_blank" rel="noopener">Instagram</a>
+      <a href="hotels.html">For hotels</a>
     </div>
   </div>
 </footer>
@@ -495,7 +486,7 @@
   }
 
   /* ---- 2b. scroll reveal ---- */
-  var auto = '.occ, .step, .t, .hotels .box, .faqlist, .early .wrap, #occasions h2, #how h2, .trust h2, #faq h2';
+  var auto = '.occ, .step, .t,  .faqlist, .early .wrap, #occasions h2, #how h2, .trust h2, #faq h2';
   document.querySelectorAll(auto).forEach(function(el, idx){
     if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
@@ -525,42 +516,48 @@
   }, { passive: true });
 
   /* ---- 1. celebration builder ---- */
+  // Sample prices: edit these when hotels confirm real rates.
   var ROOM_FLEX = 6499, ROOM_FIXED = 7499, ROOM_RACK = 10000;
-  var RACK = { 'Celebration cake': 1200, 'Room décor': 2500, 'Dinner for two': 4000, 'Late checkout': 0 };
+  var ITEMS = {
+    cake:   { label: 'Celebration cake',                       price: 1200, rack: 1200 },
+    bcake:  { label: 'Birthday cake',                          price: 1200, rack: 1200 },
+    decor:  { label: 'Room décor: balloons, petals, candles', price: 2500, rack: 2500 },
+    rose:   { label: 'Rose petal & candle setup',              price: 2500, rack: 2500 },
+    dinner: { label: 'Dinner for two',                         price: 3800, rack: 3800 }
+  };
+  var PACKAGES = {
+    'Anniversary': ['cake', 'decor', 'dinner'],
+    'Birthday':    ['bcake', 'decor', 'dinner'],
+    'Date night':  ['rose', 'dinner']
+  };
   var state = { occasion: 'Anniversary', area: 'Delhi' };
   var fmt = function(n){ return '₹' + n.toLocaleString('en-IN'); };
   var dateEl = document.getElementById('date'), flexEl = document.getElementById('flex');
 
-  var today = new Date(); today.setDate(today.getDate() + 1);
-  dateEl.min = today.toISOString().slice(0, 10);
+  var tmr = new Date(); tmr.setDate(tmr.getDate() + 1);
+  dateEl.min = tmr.toISOString().slice(0, 10);
   dateEl.disabled = flexEl.checked;
 
+  function pressChip(group, value){
+    document.querySelectorAll('[data-group="' + group + '"] .chip').forEach(function(c){
+      c.setAttribute('aria-pressed', c.dataset.v === value ? 'true' : 'false');
+    });
+    state[group] = value;
+  }
   document.querySelectorAll('.chips').forEach(function(group){
     group.addEventListener('click', function(e){
       var b = e.target.closest('.chip'); if (!b) return;
-      group.querySelectorAll('.chip').forEach(function(x){ x.setAttribute('aria-pressed', 'false'); });
-      b.setAttribute('aria-pressed', 'true');
-      state[group.dataset.group] = b.dataset.v;
+      pressChip(group.dataset.group, b.dataset.v);
       render();
     });
   });
-  document.querySelectorAll('.addon input').forEach(function(i){ i.addEventListener('change', render); });
   flexEl.addEventListener('change', function(){ dateEl.disabled = flexEl.checked; render(); });
   dateEl.addEventListener('change', render);
 
-  var presets = {
-    date:        { occasion: 'Date night',  addons: ['Room décor', 'Dinner for two'] },
-    anniversary: { occasion: 'Anniversary', addons: ['Celebration cake', 'Room décor', 'Dinner for two'] },
-    birthday:    { occasion: 'Birthday',    addons: ['Celebration cake', 'Room décor', 'Dinner for two', 'Late checkout'] }
-  };
+  var presets = { date: 'Date night', anniversary: 'Anniversary', birthday: 'Birthday' };
   document.querySelectorAll('.plan').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var p = presets[btn.dataset.preset];
-      document.querySelectorAll('[data-group="occasion"] .chip').forEach(function(c){
-        c.setAttribute('aria-pressed', c.dataset.v === p.occasion ? 'true' : 'false');
-      });
-      state.occasion = p.occasion;
-      document.querySelectorAll('.addon input').forEach(function(i){ i.checked = p.addons.indexOf(i.dataset.addon) > -1; });
+      pressChip('occasion', presets[btn.dataset.preset]);
       render();
       document.getElementById('plan').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
     });
@@ -569,38 +566,32 @@
   var totalEl = document.getElementById('sTotal');
   function render(){
     var flex = flexEl.checked, room = flex ? ROOM_FLEX : ROOM_FIXED;
-    var lines = [['Deluxe room, 1 night', room]], total = room, rack = ROOM_RACK, chosen = [];
-    document.querySelectorAll('.addon input').forEach(function(i){
-      if (i.checked) {
-        var pr = +i.dataset.price;
-        lines.push([i.dataset.addon, pr]); total += pr; rack += RACK[i.dataset.addon]; chosen.push(i.dataset.addon);
-      }
-    });
+    var keys = PACKAGES[state.occasion], total = room, rack = ROOM_RACK;
+    var names = ['Deluxe room, 1 night'];
+    keys.forEach(function(k){ total += ITEMS[k].price; rack += ITEMS[k].rack; names.push(ITEMS[k].label); });
 
-    document.getElementById('sTitle').textContent = state.occasion + (state.area === 'Anywhere in NCR' ? ' in Delhi NCR' : ' in ' + state.area);
+    document.getElementById('incl').innerHTML = names.map(function(n){ return '<li>' + n + '</li>'; }).join('');
+    document.getElementById('sLines').innerHTML = names.map(function(n){
+      return '<div class="sline"><span>' + n + '</span><span>Included</span></div>';
+    }).join('');
+
+    document.getElementById('sTitle').textContent = state.occasion + ' package · ' + (state.area === 'Anywhere in NCR' ? 'Delhi NCR' : state.area);
     var whenTxt;
     if (flex) whenTxt = 'Flexible dates · best-value nights';
     else if (dateEl.value) whenTxt = new Date(dateEl.value + 'T00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
     else whenTxt = 'Pick a date, or choose flexible for the best price';
     document.getElementById('sWhen').textContent = whenTxt;
 
-    document.getElementById('sLines').innerHTML = lines.map(function(l){
-      return '<div class="sline"><span>' + l[0] + '</span><span>' + (l[1] ? fmt(l[1]) : 'on request') + '</span></div>';
-    }).join('');
-
     totalEl.textContent = fmt(total);
     if (!reduce) { totalEl.classList.remove('bump'); void totalEl.offsetWidth; totalEl.classList.add('bump'); setTimeout(function(){ totalEl.classList.remove('bump'); }, 220); }
 
     var saved = rack - total;
-    document.getElementById('sSave').textContent = saved > 0
-      ? 'About ' + fmt(saved) + ' less than booking it all separately' + (flex ? '' : ' · flexible dates save more')
-      : '';
+    document.getElementById('sSave').textContent = 'About ' + fmt(saved) + ' less than booking it all separately' + (flex ? '' : ' · flexible dates save more');
 
     var msg = 'Hi Cherish Stays! I\'d like to plan a celebration.\n\n'
-      + 'Occasion: ' + state.occasion + '\n'
+      + 'Package: ' + state.occasion + '\n'
       + 'Area: ' + state.area + '\n'
       + 'Date: ' + (flex ? 'Flexible, best-value nights' : (dateEl.value || 'Not decided yet')) + '\n'
-      + 'Add-ons: ' + (chosen.length ? chosen.join(', ') : 'Room only') + '\n'
       + 'Estimate shown: ' + fmt(total);
     document.getElementById('sSend').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
   }
