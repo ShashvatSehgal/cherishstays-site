@@ -226,7 +226,7 @@
     html{scroll-behavior:auto}
   }
 
-  footer{background:var(--plum);color:#bfa8b1;padding:44px 0;font-size:14px}
+  footer{background:var(--plum);color:#bfa8b1;padding:44px 0 56px;font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   footer a{color:var(--rose-2);text-decoration:none}
   footer .links{display:flex;gap:22px;flex-wrap:wrap}
@@ -599,10 +599,13 @@
 
   /* ---- 4. floating WhatsApp button ---- */
   var fab = document.getElementById('fab'), hero = document.querySelector('.hero'), plan = document.getElementById('plan');
+  var foot = document.querySelector('footer'), early = document.querySelector('.early');
   function onScroll(){
+    var vh = window.innerHeight;
     var past = window.scrollY > hero.offsetHeight - 120;
-    var r = plan.getBoundingClientRect(), inPlan = r.top < window.innerHeight * 0.6 && r.bottom > window.innerHeight * 0.4;
-    fab.classList.toggle('show', past && !inPlan);
+    var r = plan.getBoundingClientRect(), inPlan = r.top < vh * 0.6 && r.bottom > vh * 0.4;
+    var nearEnd = early.getBoundingClientRect().top < vh * 0.75 || foot.getBoundingClientRect().top < vh;
+    fab.classList.toggle('show', past && !inPlan && !nearEnd);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
